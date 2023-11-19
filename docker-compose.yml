@@ -33,9 +33,9 @@ services:
 
   logstash:
     image: logstash:5.0.0
-    # volumes:
-    #       - ./:/config
-    # command: logstash
+    volumes:
+          - ./logstash/config:/usr/share/logstash/config
+    command: logstash -f /usr/share/logstash/config/logstash.conf
     links:
      - elasticsearch
     depends_on:
