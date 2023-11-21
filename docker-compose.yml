@@ -3,7 +3,7 @@ version: "3.1"
 services:
   myjenkins:
     build:
-      context: .
+      context: ./myjenkins
       network: host
     image: myjenkins
     ports:
@@ -15,9 +15,9 @@ services:
     #   - mysonar
     #   - artifactory
     volumes:
-     - "./jobs:/var/jenkins_home/jobs/"
-     - "./m2deps:/var/jenkins_home/.m2/repository/"
-     - "./downloads:/var/jenkins_home/downloads"
+     - "./myjenkins/jobs:/var/jenkins_home/jobs/"
+     - "./myjenkins/m2deps:/var/jenkins_home/.m2/repository/"
+     - "./myjenkins/downloads:/var/jenkins_home/downloads"
     secrets:
      - artifactoryPassword
 
@@ -59,7 +59,7 @@ services:
 
 secrets:
   artifactoryPassword:
-    file: ./secrets/artifactoryPassword
+    file: ./myjenkins/secrets/artifactoryPassword
 
 networks:
   default:
