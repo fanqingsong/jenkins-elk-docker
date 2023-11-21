@@ -1,0 +1,6 @@
+
+elasticsearch/data
+filebeat/logs
+kibana/data
+
+
