@@ -21,6 +21,15 @@ services:
     secrets:
      - artifactoryPassword
 
+  filebeat:
+    image: elastic/filebeat:6.0.0
+    volumes:
+      - "./myjenkins/jobs:/var/jenkins_home/jobs/"
+      - "./filebeat/logs:/var/log/filebeat"
+      - "./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml"
+    depends_on:
+      - myjenkins
+
   # mysonar:
   #   image: sonarqube:6.3.1
   #   ports:

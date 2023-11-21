@@ -4,7 +4,7 @@
 docker-compose down
 
 #update older jenkins image, make sure it doesnt use cache
-docker-compose build --no-cache
+docker-compose build
 
 #run build stack
 docker-compose up &
